@@ -1,3 +1,12 @@
+// Declerative_Kubernetes_Test.groovy
+pipelineJob('declarative-k8s-test-job') {
+    description('Kubernetes deployment test using Declarative Pipeline syntax.')
+
+    definition {
+        // Defines the Pipeline script type
+        cps {
+            // Embeds the Declarative Pipeline script as a literal string
+            script("""
 // Uses Declarative syntax to run commands inside a container.
 pipeline {
     agent {
@@ -39,5 +48,14 @@ spec:
                 sh 'hostname'
             }
         }
+    }
+}
+            """.stripIndent()) // The stripIndent() cleans up leading whitespace
+        }
+    }
+    
+    // Add any necessary build triggers for the job (optional)
+    triggers {
+        // e.g., scm('H/5 * * * *') or cron('30 7 * * 1-5')
     }
 }
