@@ -1,4 +1,4 @@
-podTemplate(label: "k8s-test-pod-templates",
+podTemplate(label: "k8s-test-node",
         containers: [
                 containerTemplate(name: 'alpine', image: 'alpine:3.11', ttyEnabled: true, command: 'cat'),
                 containerTemplate(name: 'python', image: 'python:3.15.0a2-trixie', ttyEnabled: true, command: 'cat'),
