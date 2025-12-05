@@ -5,7 +5,7 @@ podTemplate(label: "test",
                 containerTemplate(name: 'java', image: '8u472-b08-jre-ubi9-minimal', ttyEnabled: true, command: 'cat'),
         ],
         ) {
-    node("node-test") {
+    node("test") {
         stage('Run shell') {
             container('alpine') {
                 sh 'echo "hello world"'
